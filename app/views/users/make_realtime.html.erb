@@ -1,0 +1,36 @@
+<%= render 'layouts/admin_navigation' %>
+
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <br><br>
+    <h1 class="header center orange-text">실시간 정보 전송</h1>
+    <div class="divider"></div>
+    <div class="card-panel teal-gradient">
+      <span class="white-text">실시간 정보 전송 기능은, <strong>실시간으로 축제 현장에서 발생한 이벤트 정보를 등록해 동시간대 접속자가 메인 페이지 상단 전광판으로 확인할 수 있도록 하는 기능입니다.</strong></span>
+    </div>
+    <% flash.each do |message_type, message| %>
+    <div class="card-panel teal-gradient <%= message_type %>">
+      <span class="white-text center"><%= message %></span>
+    </div>
+    <div class="divider"></div>
+    <% end %>
+  </div>
+</div>
+<div class="container section">
+  <div class="row center card card-padding">
+    <form method="POST" action="/fest_manage/make/realtime/save">
+      <div class="input-field col s12">
+        <label for="title">제목</label>
+        <input type="text" name="title" class="validate" id="title" required>
+      </div>
+      <div class="input-field col s12">
+        <label for="content">내용</label>
+        <textarea name="content" class="materialize-textarea" rows="5" id="content" required></textarea>
+      </div>
+      <div class="divider"></div>
+      <button type="submit" class="btn btn-lg btn-primary btn-block" style="magin-top:20px;">전송</button>
+    </form>
+  </div>
+</div>
+
+<%= render 'layouts/admin_footer' %>

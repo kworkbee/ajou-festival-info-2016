@@ -1,0 +1,31 @@
+<div class='toast_msg' style="display:none;">
+  <i class="material-icons">wifi</i>&nbsp;&nbsp;[실시간 | <%= @realtime.Title %>]<br><%= @realtime.Content %>
+</div>
+<script>var initLEDId = <%= @realtime.id %></script>
+<div class="navbar-fixed">
+  <nav class="light-blue lighten-2" role="navigation" id="nav-normal">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/" class="brand-logo"><%= image_tag "basic/festival_logo.png" %></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="white-text" href="/day/25"><strong>축제 지도</strong></a></li>
+        <li><a class="white-text" href="#lineup">라인업</a></li>
+        <li><a class="white-text" href="#bar">주점 리스트</a></li>
+        <li><a class="white-text" href="#poster">포스터</a></li>
+        <li><a class="white-text" href="#market">부스 리스트</a></li>
+        <li><a class="white-text" href="/credit">소개</a></li>
+      </ul>
+    </div>
+  </nav>
+  <nav class="light-blue lighten-2" role="navigation" id="nav-mobile">
+    <div class="nav-wrapper container">
+      <div class="row">
+        <div class="col s2 m2"><a class="white-text" href="/"><i class="material-icons eye">home</i></a></div>
+        <div class="col s2 m2"><a class="white-text" href="/day/25"><i class="material-icons eye">place</i></a></div>
+        <div class="col s2 m2"><a class="white-text" href="#lineup"><i class="material-icons">mic</i></a></div>
+        <div class="col s2 m2"><a class="white-text" href="#bar"><i class="material-icons eye">local_bar</i></a></div>
+        <div class="col s2 m2"><a class="white-text" href="#market"><i class="material-icons">store</i></a></div>
+        <div class="col s2 m2"><a class="white-text" href="#poster"><i class="material-icons eye">photo</i></a></div>
+      </div>
+    </div>
+  </nav>
+</div>

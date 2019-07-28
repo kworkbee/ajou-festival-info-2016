@@ -1,0 +1,414 @@
+<%= render 'layouts/navigation' %>
+
+<section id="introduction">
+  <div id="index-banner" class="parallax-container">
+    <div class="section">
+      <div class="container alpha-background" style='margin-top:50px;'>
+        <h1 class="header center teal-text white-text">아주대학교 2016 대동제</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">다가오는 25일부터 27일까지 개최됩니다.</h5>
+        </div>
+        <div class="row center">
+          <a href="/day" id="download-button" class="btn-large waves-effect waves-light light-blue lighten-1">지도 보기</a>
+          <a href="/credit" id="download-button" class="btn-large waves-effect waves-light light-blue lighten-1">소개</a>
+        </div>
+        <br /><br />
+      </div>
+    </div>
+    <div class="parallax">
+      <%= image_tag 'basic/background1.gif' %>
+    </div>
+  </div>
+</section>
+
+<a id="list"></a>
+
+<section>
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <h1 class="header center orange-text">부스 및 주점</h1>
+      </div>
+      <div class="row center">
+        <div class="col s12 m6 l6">
+          <a id="a_tag_color" href="#market">  <h2><%= @booth %></h2>개의 부스 </a>
+        </div>
+        <div class="col s12 m6 l6">
+          <a id="a_tag_color" href="#bar"><h2><%= @beer %></h2>개의 주점 </a>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </div>
+  </div>  
+  
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h1 id="market_information" class="orange-text">오늘의 주목받는 주점 및 부스</h1>
+          <div class="col s12 m6 l6">
+            <h1><i class="material-icons icon_20 orange-text">store</i></h1>
+          
+            <div class="col s12 m12">
+              <% i = 1 %>
+              <% @booth_rank.each do |d| %>
+              <div class="col s12 m12 l12">
+                <div class="card" id="rank_booth_<%=i%>">
+                  <div class="card-content">
+                    <div class="row center">
+                      <div class="col m4 l4 s1">
+                        <%= image_tag "medals/medal"+i.to_s+".png", width:'20rem', class:'left' %>
+                      </div>
+                      <div class="col m4 l4 s10" align="center">
+                        <span class="card-title activator grey-text text-darken-4 market_click truncate" onclick="increment(<%= d.id %>);"><%= d.title %></span>
+                      </div>
+                      <div class="col m4 l4 s1">
+                      <h6 class="activator right love" onclick="increment(<%= d.id %>);" style="color:#039be5; padding-top:2px; padding-right:10px;">자세히</h6>
+                      </div>
+                    </div>
+                    <div class="row center">
+                        <div class="col s6 m6 l6" style="color:#aaaaaa;"><i class="material-icons eye">remove_red_eye</i><br><span id="like_num<%=d.id%>"><%= d.like %></span></br></div>
+                        <div class="col s6 m6 l6"><p onclick="map_func(<%= d.id %>);"><i class="material-icons map" style="color:#aaaaaa;">place</i><a class="market_click" href="#"><br>지도로 가기</br></a></p></div>
+                    </div>
+                  </div>
+                  <div class="card-reveal">
+                    <div class="row">
+                      <div class="col m11 l11 s11 card-title grey-text text-darken-4"><%= d.title %></div>
+                      <div class="col m1 l1 s1 shown card-title grey-text text-darken-4"><i class="material-icons right">close</i></div>
+                    </div>
+                    <div class="row">
+                      <p><%= d.menu %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <% i = i + 1 %>
+              <% end %>
+            </div>
+          </div>         
+          <div class="col s12 m6 l6">
+            <h1><i class="material-icons icon_20 orange-text">local_bar</i></h1>
+            <div class="col s12 m12">
+            <% i=1 %>
+            <% @beer_rank.each do |d| %>
+              <div class="col s12 m12 l12">
+                <div class="card" id="rank_beer_<%= i %>">
+                  <div class="card-content">
+                    <div class="row center">
+                       <div class="col m4 l4 s1 ">
+                         <%= image_tag "medals/medal" + i.to_s + ".png", width:'20rem', class:'left'%>
+                        </div>
+                        
+                        <div class="col m4 l4 s10" align="center">
+                          <span class="card-title activator grey-text text-darken-4 market_click truncate" onclick="increment(<%= d.id %>);"><%= d.title%></span>
+                        </div>
+                        
+                        <div class="col m4 l4 s1">
+                         <h6 class="activator right love" onclick="increment(<%= d.id %>);" style="color:#039be5;padding-top:2px; padding-right:10px;">자세히</h6></span>
+                        </div>
+                        
+                    </div>
+                    <div class="row center">
+                        <div class="col s6 m6 l6" style="color:#aaaaaa;"><i class="material-icons eye">remove_red_eye</i><br><span id="like_num<%=d.id%>"><%= d.like %></span></br></div>
+                        <div class="col s6 m6 l6"><p onclick="map_func(<%= d.id %>);"><i class="material-icons map" style="color:#aaaaaa;">place</i><a class="market_click" href="#"><br>지도로 가기</br></a></p></div>
+                    </div>
+                  </div>
+                  <div class="card-reveal">
+                    <div class="row">
+                      <div class="col m11 l11 s11 card-title grey-text text-darken-4"><%= d.title %></div>
+                      <div class="col m1 l1 s1 shown card-title grey-text text-darken-4"><i class="material-icons right">close</i></div>
+                    </div>
+                    <div class="row">
+                      <p><%= d.menu %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% i=i+1 %>
+            <% end %>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</section>
+
+<a id="lineup"></a>
+<section>
+  <div id="years_lineup" class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container alpha-background">
+        <div class="row center">
+          <h2 id="minji_minji" class="header col s12 light orange-text">라인업</h2>
+          <div class="divider"></div>
+          <div class="col s12 m4 l4 lu">
+            <%= image_tag 'lineup/Day1.PNG', width:"180rem" %>
+          </div>
+          <div class="col s12 m4 l4 lu">
+            <%= image_tag 'lineup/Day2.PNG', width:"180rem" %>
+          </div>
+          <div class="col s12 m4 l4 lu">
+            <%= image_tag 'lineup/Day3.PNG', width:"180rem" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="parallax">
+      <%= image_tag 'basic/festival_before.jpg' %>
+    </div>
+  </div> 
+</section>
+
+<a id="bar"></a>
+
+<section>
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h1 id="market_information" class="orange-text">주점 리스트</h1>
+          <p class="left-align light"></p>
+          
+          <div class="row">
+            <div class="col s12">
+              <ul class="tabs">
+                <li class="tab col s3"><a href="#bar_test1">25일</a></li>
+                <li class="tab col s3"><a href="#bar_test2">26일</a></li>
+                <li class="tab col s3"><a href="#bar_test3">27일</a></li>
+              </ul>
+            </div>
+          </div>
+            
+          <div class="row center" id="bar_test1">  
+          <% @beer_list.where(date:25).each do |d| %>
+            <div class="col s12 m6 l6">
+              <div class="card">
+                <div class="card-content">
+                  <div class="row center">
+                    <div class="col m11 l11 s11" align="center">
+                      <span class="card-title activator grey-text text-darken-4 market_click" id="<%=d.id%>" onclick="increment(<%= d.id %>);"><%= d.title %></span>
+                    </div>
+                    <div class="col m1 l1 s1">
+                      <h6 class="activator right love" onclick="increment(<%= d.id %>);" style="color:#039be5;">자세히</h6>
+                    </div>
+                  </div>
+                  <div class="row center">   
+                    <div class="col s6 m6 l6" style="color:#aaaaaa;"><i class="material-icons eye">remove_red_eye</i><br><span id="like_num<%=d.id%>"><%= d.like %></span></br></div>
+                    <div class="col s6 m6 l6"><p onclick="map_func(<%= d.id %>);"><i class="material-icons map" style="color:#aaaaaa;">place</i><a class="market_click" href="#"><br>지도로 가기</br></a></p></div>
+                  </div>
+                </div>
+                <div class="card-reveal">
+                  <div class="row">
+                    <div class="col m11 l11 s11 card-title grey-text text-darken-4"><%= d.title %></div>
+                    <div class="col m1 l1 s1  card-title grey-text text-darken-4"><i class="material-icons right">close</i></div>
+                  </div>
+                  <div class="row">
+                    <p><%= d.menu %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          </div>
+          <div class="row center" id="bar_test2">  
+            <% @beer_list.where(date:26).each do |d| %>
+            <div class="col s12 m6 l6">
+              <div class="card">
+                <div class="card-content">
+                  <div class="row center">
+                    <div class="col m11 l11 s11" align="center">
+                      <span class="card-title activator grey-text text-darken-4 market_click" id="<%=d.id%>" onclick="increment(<%= d.id %>);"><%= d.title %></span>
+                    </div>
+                    <div class="col m1 l1 s1">
+                      <h6 class="activator right love" onclick="increment(<%= d.id %>);" style="color:#039be5;">자세히</h6>
+                    </div>
+                  </div>
+                  <div class="row center">   
+                    <div class="col s6 m6 l6" style="color:#aaaaaa;"><i class="material-icons eye">remove_red_eye</i><br><span id="like_num<%=d.id%>"><%= d.like %></span></br></div>
+                    <div class="col s6 m6 l6"><p onclick="map_func(<%= d.id %>);"><i class="material-icons map" style="color:#aaaaaa;">place</i><a class="market_click" href="#"><br>지도로 가기</br></a></p></div>
+                  </div>
+                </div>
+                <div class="card-reveal">
+                  <div class="row">
+                    <div class="col m11 l11 s11 card-title grey-text text-darken-4"><%= d.title %></div>
+                    <div class="col m1 l1 s1  card-title grey-text text-darken-4"><i class="material-icons right">close</i></div>
+                  </div>
+                  <div class="row">
+                    <p><%= d.menu %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+          <div class="row center" id="bar_test3">  
+          <% @beer_list.where(date:27).each do |d| %>
+            <div class="col s12 m6 l6">
+              <div class="card">
+                <div class="card-content">
+                  <div class="row center">
+                    <div class="col m11 l11 s11" align="center">
+                      <span class="card-title activator grey-text text-darken-4 market_click" id="<%=d.id%>" onclick="increment(<%= d.id %>);"><%= d.title %></span>
+                    </div>
+                    <div class="col m1 l1 s1">
+                      <h6 class="activator right love" onclick="increment(<%= d.id %>);" style="color:#039be5;">자세히</h6>
+                    </div>
+                  </div>
+                  <div class="row center">   
+                    <div class="col s6 m6 l6" style="color:#aaaaaa;"><i class="material-icons eye">remove_red_eye</i><br><span id="like_num<%=d.id%>"><%= d.like %></span></br></div>
+                    <div class="col s6 m6 l6"><p onclick="map_func(<%= d.id %>);"><i class="material-icons map" style="color:#aaaaaa;">place</i><a class="market_click" href="#"><br>지도로 가기</br></a></p></div>
+                  </div>
+                </div>
+                <div class="card-reveal">
+                  <div class="row">
+                    <div class="col m11 l11 s11 card-title grey-text text-darken-4"><%= d.title %></div>
+                    <div class="col m1 l1 s1  card-title grey-text text-darken-4"><i class="material-icons right">close</i></div>
+                  </div>
+                  <div class="row">
+                    <p><%= d.menu %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a id="poster"></a>
+
+<section>
+  <div class="parallax-container valign-wrapper poster">
+    <div class="section no-pad-bot poset_box">
+      <div class="carousel">
+          <a class="carousel-item poster_img" href="#one!"><%= image_tag "posters/poster1.jpg" %></a>
+          <a class="carousel-item poster_img" href="#two!"><%= image_tag "posters/poster2.png" %></a>
+          <a class="carousel-item poster_img" href="#three!"><%= image_tag "posters/poster3.jpg" %></a>
+          <a class="carousel-item poster_img" href="#four!"><%= image_tag "posters/poster4.jpg" %></a>
+      </div>
+    </div> 
+    <div class="parallax" style="background-color:#263238;"></div>
+  </div>
+</section>  
+
+<a id="market"></a>
+
+<section>
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h1 id="market_information" class="orange-text">부스 리스트</h1>
+          <p class="left-align light"></p>
+          <div class="row">
+            <div class="col s12">
+              <ul class="tabs">
+                <li class="tab col s3"><a href="#market_test1">25일</a></li>
+                <li class="tab col s3"><a href="#market_test2">26일</a></li>
+                <li class="tab col s3"><a href="#market_test3">27일</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row center" id="market_test1">
+        <% @booth_list.where(date:25).each do |d| %>
+          <div class="col s12 m6 l6">
+            <div class="card">
+              <div class="card-content">
+                <div class="row center">
+                  <div class="col m11 l11 s11" align="center">
+                    <span class="card-title activator grey-text text-darken-4 market_click truncate" id="<%=d.id%>" onclick="increment(<%= d.id %>);"><%= d.title %></span>
+                  </div>
+                  <div class="col m1 l1 s1">
+                    <h6 class="activator right love" onclick="increment(<%= d.id %>);" style="color:#039be5;">자세히</h6>
+                  </div>
+                </div>
+                <div class="row center">
+                  <div class="col s6 m6 l6" style="color:#aaaaaa;"><i class="material-icons eye">remove_red_eye</i><br><span id="like_num<%=d.id%>"><%= d.like %></span></br></div>
+                  <div class="col s6 m6 l6"><p onclick="map_func(<%= d.id %>);"><i class="material-icons map" style="color:#aaaaaa;">place</i><a class="market_click" href="#"><br>지도로 가기</br></a></p></div>
+                </div>
+              </div>
+              <div class="card-reveal">
+                <div class="row">
+                  <div class="col m11 l11 s11 card-title grey-text text-darken-4"><%= d.title %></div>
+                  <div class="col m1 l1 s1  card-title grey-text text-darken-4"><i class="material-icons right">close</i></div>
+                </div>
+                <div class="row">
+                  <p><%= d.menu %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        </div>
+        <div class="row center" id="market_test2">
+          <% @booth_list.where(date:26).each do |d| %>
+            <div class="col s12 m6 l6">
+              <div class="card">
+                <div class="card-content">
+                  <div class="row center">
+                    <div class="col m11 l11 s11" align="center">
+                      <span class="card-title activator grey-text text-darken-4 market_click truncate" id="<%=d.id%>" onclick="increment(<%= d.id %>);"><%= d.title %></span>
+                    </div>
+                    <div class="col m1 l1 s1">
+                      <h6 class="activator right love" onclick="increment(<%= d.id %>);" style="color:#039be5;">자세히</h6>
+                    </div>
+                  </div>
+                  <div class="row center">
+                      <div class="col s6 m6 l6" style="color:#aaaaaa;"><i class="material-icons eye">remove_red_eye</i><br><span id="like_num<%=d.id%>"><%= d.like %></span></br></div>
+                      <div class="col s6 m6 l6"><p onclick="map_func(<%= d.id %>);"><i class="material-icons map" style="color:#aaaaaa;">place</i><a class="market_click" href="#"><br>지도로 가기</br></a></p></div>
+                  </div>
+                </div>
+                <div class="card-reveal">
+                  <div class="row">
+                    <div class="col m11 l11 s11 card-title grey-text text-darken-4"><%= d.title %></div>
+                    <div class="col m1 l1 s1  card-title grey-text text-darken-4"><i class="material-icons right">close</i></div>
+                  </div>
+                  <div class="row">
+                    <p><%= d.menu %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="row center" id="market_test3">
+          <% @booth_list.where(date:27).each do |d| %>
+            <div class="col s12 m6 l6">
+              <div class="card">
+                <div class="card-content">
+                  <div class="row center">
+                    <div class="col m11 l11 s11" align="center">
+                      <span class="card-title activator grey-text text-darken-4 market_click truncate" id="<%=d.id%>" onclick="increment(<%= d.id %>);"><%= d.title %></span>
+                    </div>
+                    <div class="col m1 l1 s1">
+                      <h6 class="activator right love"  onclick="increment(<%= d.id %>);" style="color:#039be5;">자세히</h6>
+                    </div>
+                  </div>
+                  <div class="row center">
+                      <div class="col s6 m6 l6" style="color:#aaaaaa;"><i class="material-icons eye">remove_red_eye</i><br><span id="like_num<%=d.id%>"><%= d.like %></span></br></div>
+                      <div class="col s6 m6 l6"><p onclick="map_func(<%= d.id %>);"><i class="material-icons map" style="color:#aaaaaa;">place</i><a class="market_click" href="#"><br>지도로 가기</br></a></p></div>
+                  </div>
+                </div>
+                <div class="card-reveal">
+                  <div class="row">
+                    <div class="col m11 l11 s11 card-title grey-text text-darken-4"><%= d.title %></div>
+                    <div class="col m1 l1 s1  card-title grey-text text-darken-4"><i class="material-icons right">close</i></div>
+                  </div>
+                  <div class="row">
+                    <p><%= d.menu %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= render 'layouts/footer' %>

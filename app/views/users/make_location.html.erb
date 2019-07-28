@@ -1,0 +1,77 @@
+<%= render 'layouts/admin_navigation' %>
+
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+  <br><br>
+    <h1 class="header center orange-text">위치 데이터 추가</h1>
+    <div class="divider"></div>
+    <div class="card-panel teal-gradient">
+      <span class="white-text">위치 데이터 추가는, <strong>주점, 부스 등 특정 이벤트에 대한 위치 정보를 추가할 수 있는 기능입니다.</strong></span>
+      <div class="card-action">
+        <a class="white-text" href="/fest_manage/make/location/list"><h5>목록을 확인하시려면 이곳을 클릭하세요</h5></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container section">
+  <div class="row center card card-padding">
+    <% flash.each do |message_type, message| %>
+    <div class="card-panel teal <%= message_type %>">
+      <span class="white-text center"><%= message %></span>
+    </div>
+    <div class="divider"></div>
+    <% end %>
+    <form action="/fest_manage/make/location/save" method="POST" entype="multipart/form-data">
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="boothname">부스/주점 이름</label>
+          <input name="title" type="text" class="validate" id="boothname" required>
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <select name="date" class="validate" required>
+            <option disabled selected>날짜 선택</option>
+            <option value="25">25일</option>
+            <option value="26">26일</option>
+            <option value="27">27일</option>=
+          </select>
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <select name="day" class="validate" required>
+              <option disabled selected>낮/밤 구분</option>
+              <option value="낮">낮</option>
+              <option value="밤">밤</option>
+              </optgroup>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6 l6">
+            <input name="location_x" id="input_text" type="number" required>
+            <label for="input_text">TOP 좌표 rem 단위 입력(ex. 300)</label>
+        </div>
+        <div class="input-field col s12 m6 l6">
+            <input name="location_y" id="input_text" type="number" required>
+            <label for="input_text">LEFT 좌표 rem 단위 입력(ex. 300)</label>
+        </div>
+        <div class="input-field col s12">
+          <label for="comment">메뉴</label>
+          <textarea name="menu" class="materialize-textarea" rows="8" required id="comment"></textarea>
+        </div>
+      </div>
+      <div class="file-field input-field">
+         <div class="btn">
+           <span>이미지 첨부</span>
+           <input type="file">
+         </div>
+         <div class="file-path-wrapper">
+           <input id="input-dim-1" class="file-path validate" type="text" placeholder="파일 첨부" accept="image/*">
+         </div>
+      </div>
+      <input type="hidden" name="like" value="0">
+      <div class="divider"></div><br>
+      <button type="submit" class="btn btn-lg btn-primary btn-large">저장</button>
+    </form>
+  </div>
+</div>
+
+<%= render 'layouts/admin_footer' %>

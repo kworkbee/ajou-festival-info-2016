@@ -1,0 +1,155 @@
+<div class='toast_msg' style="display:none;"><i class="material-icons">wifi</i>&nbsp;&nbsp;[실시간 | <%= @realtime.Title %>]<br><%= @realtime.Content %></div>
+<script>var initLEDId = <%= @realtime.id %></script>
+<div class="navbar-fixed">
+  <nav class="light-blue lighten-2" role="navigation" id="nav-normal">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/" class="brand-logo"><%= image_tag 'basic/festival_logo.png' %></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="white-text" href="/day/25"><strong>축제 지도</strong></a></li>
+        <li><a class="white-text" href="/#lineup">라인업</a></li>
+        <li><a class="white-text" href="/#bar">주점 리스트</a></li>
+        <li><a class="white-text" href="/#poster">포스터</a></li>
+        <li><a class="white-text" href="/#market">부스 리스트</a></li>
+        <li><a class="white-text" href="/credit">소개</a></li>
+      </ul>
+    </div>
+ </nav>
+ 
+ <nav class="light-blue lighten-2" role="navigation" id="nav-mobile">
+    <div class="nav-wrapper container">
+      <div class="row">
+        <div class="col s2 m2"><a class="white-text" href="/"><i class="material-icons eye">home</i></a></div>
+        <div class="col s2 m2"><a class="white-text" href="/day/25"><i class="material-icons eye">place</i></a></div>
+        <div class="col s2 m2"><a class="white-text" href="/#lineup"><i class="material-icons">mic</i></a></div>
+        <div class="col s2 m2"><a class="white-text" href="/#bar"><i class="material-icons eye">local_bar</i></a></div>
+        <div class="col s2 m2"><a class="white-text" href="/#market"><i class="material-icons">store</i></a></div>
+        <div class="col s2 m2"><a class="white-text" href="/#poster"><i class="material-icons eye">photo</i></a></div>
+      </div>
+    </div>
+  </nav>
+</div>
+<section>
+    <div class="container">
+        <div class="row center">
+            <div class="card card-padding orange lighten-2" id='development'>
+              <h3 class="white-text">이 프로젝트는 <em>Ruby on Rails</em>를 이용하여 개발되었습니다.</h3>
+            </div>
+            <div class="row card card-padding">
+              <div class="col s12 m12 l6">
+                <h1 class="orange-text">What is <a href="http://likelion.net"><%= image_tag "basic/likelion-black.png", width: '200px' %></a>?</h1>
+                <p>컴퓨터를 전혀 모르는 대학생들이 <br> 내가 만들고 싶은 IT서비스를 직접 배워서 직접 런칭한다<br>단 90일만에!</p>
+              </div>
+              <div class="col s12 m12 l6">
+                <h1 class="orange-text"><%= image_tag "basic/festival_logo_blue.png", width: "300px" %></h1>
+                 멋쟁이사자처럼 활동 중인 아주대학교 학생들의 프로젝트 작품입니다.<br>
+                 2016년도 아주대학교 대동제 축제 정보를 볼 수 있는 웹사이트입니다.<br>
+                 이용해주셔서 감사합니다!
+              </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div id="developers" class="row center">
+            <h3 id='peoples' class="orange-text">본 웹사이트를 함께 만든 사람들</h3>
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                  <div class="row valign-wrapper">
+                    <div class="col s2">
+                      <%= image_tag "members/mungsun.jpg", class:"circle responsive-img" %><!-- notice the "circle" class -->
+                    </div>
+                    <div class="col s10">
+                      <span class="black-text">
+                        안녕하세요 경영학과 김명선입니다. 많이 이용해주세요~
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                  <div class="row valign-wrapper">
+                    <div class="col s2">
+                      <%= image_tag "members/minji.png", class:"circle responsive-img" %><!-- notice the "circle" class -->
+                    </div>
+                    <div class="col s10">
+                      <span class="black-text">
+                        멋사짱
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                  <div class="row valign-wrapper">
+                    <div class="col s2">
+                      <%= image_tag "members/jeahyun.jpg", class:"circle responsive-img" %><!-- notice the "circle" class -->
+                    </div>
+                    <div class="col s10">
+                      <span class="black-text">
+                        안녕하세요. 반갑습니다.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                  <div class="row valign-wrapper">
+                    <div class="col s2">
+                      <%= image_tag "members/kyunglim.jpg", class:"circle responsive-img" %><!-- notice the "circle" class -->
+                    </div>
+                    <div class="col s10">
+                      <span class="black-text">
+                        아주대 멋쟁이사자들 화이팅! 많이 구경해주세요^_^
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                  <div class="row valign-wrapper">
+                    <div class="col s2">
+                      <%= image_tag "members/yoonjung.jpg", class:"circle responsive-img" %><!-- notice the "circle" class -->
+                    </div>
+                    <div class="col s10">
+                      <span class="black-text">
+                        안녕하세요! 경영학과 강윤정입니다. 저희 홈페이지를 통해 축제를 더 재밌게 즐길 수 있으셨으면 좋겠습니다. 감사합니다!
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                  <div class="row valign-wrapper">
+                    <div class="col s2">
+                      <%= image_tag "members/doohun.png", class:"circle responsive-img" %><!-- notice the "circle" class -->
+                    </div>
+                    <div class="col s10">
+                      <span class="black-text">
+                        멋사 여러분들 수고 많으셨습니다. <br> 경영 강두훈 잊지 말아주시고요.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                  <div class="row valign-wrapper">
+                    <div class="col s2">
+                      <%= image_tag "members/jiwon.jpg", class:"circle responsive-img" %><!-- notice the "circle" class -->
+                    </div>
+                    <div class="col s10">
+                      <span class="black-text">
+                        미디어학과에 재학중인 16학번, <strong>아주대 멋사의 막내</strong> 전지원입니다!
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>     
+</section>
+
+<%= render 'layouts/footer' %>

@@ -1,0 +1,98 @@
+/*
+    Ajou Festival Map.css
+    지도 페이지 관련 CSS File
+*/
+
+/* NAVIGATION BAR */
+.navigation {
+   position:fixed;
+   z-index:10000;
+   top:0.85rem;
+   right:0.85rem;
+}
+
+.navigation > div:last-child {
+    margin-top: 3rem !important;
+}
+
+/* MAP DIV */
+#info_container
+{
+    z-index:0;
+    position:relative; 
+    padding: 3rem;
+}
+
+/* PIN */
+
+.booth{
+    position:absolute;
+    width:0; height:0;
+}
+
+a.pin{
+    z-index:50000 !important;
+}
+
+a.pin > img {
+    width:2rem;
+}
+
+a.pin:hover{
+    cursor:pointer;
+}
+
+div.shown{
+   visibility:visible; 
+}
+
+.pin-body{
+    z-index:100 !important;
+    visibility: collapse; 
+    position:absolute;
+    background:white;
+    width:25rem;
+    height:auto;
+    top:0;
+    left:0;
+}
+
+.pin-close{
+    position:absolute;
+    top:0;
+    right:0;
+    margin:2rem;
+}
+
+.pin-close > a:hover{
+    cursor:pointer;    
+}
+
+/* Toast */
+
+.toast_msg_map{
+    display:none;
+      z-index: 1000;
+      width: 75%;
+      height: auto;
+      position: fixed;
+      background-color: #383838;
+      color: #F0F0F0;
+      font-size: 1rem;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 2px;
+      -webkit-box-shadow: 0px 0px 24px -1px #383838;
+      -moz-box-shadow: 0px 0px 24px -1px #383838;
+      box-shadow: 0px 0px 24px -1px #383838;
+      left:1rem; bottom:1rem;
+}
+
+.date{
+    position: fixed !important;
+    left:0.8rem;top:0.8rem;
+}
+
+#a_tag_color{
+    color:black;
+}

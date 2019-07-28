@@ -1,0 +1,65 @@
+<%= render 'layouts/admin_navigation' %>
+
+<br><br><br><br>
+<div class="container">
+  <% flash.each do |message_type, message| %>
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="card-panel teal <%= message_type %>">
+        <span class="white-text center"><h5><%= message %></h5></span>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <% end %>                   
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m12">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">관리자 여러분 환영합니다!</span>
+          <p>
+            관리자 페이지에서는, <strong>지도에서의 핀 추가, 실시간 상황을 전송할 수 있는 기능을 실행시킬 수 있습니다. </strong> 각 버튼을 눌러, 수행하시려는 작업을 하시기 바랍니다.
+          </p>
+        </div>
+        <div class="card-action">
+          <a href="/fest_manage/make/location">핀 위치 추가</a>
+          <a href="/fest_manage/make/realtime">실시간 상황 전송</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="section">
+  <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m12 l6 card">
+        <div class="icon-block">
+          <h2 class="center light-blue-text"><i class="material-icons">wifi</i></h2>
+          <h5 class="center">축제 실시간 상황</h5>
+          <div class="divider"></div>
+          <p class="light center">
+            [<%= @realtime.last.Title %>] <%= @realtime.last.Content %>
+          </p>
+        </div>
+      </div>
+      <div class="col s12 m12 l6 card">
+        <div class="icon-block">
+          <h2 class="center light-blue-text"><i class="material-icons">free_breakfast</i></h2>
+          <h5 class="center">부스/주점이 <strong><%= @post.count %></strong>개 등록되었습니다.</h5>
+          <div class="divider"></div>
+          <p class="light center">
+             <a class="white-text" href="/fest_manage/make/location/list"><button class="btn btn-large">View Details</button></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <div class="section">
+  </div>
+</div>
+
+<%= render 'layouts/admin_footer' %>

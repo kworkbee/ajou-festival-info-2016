@@ -1,0 +1,25 @@
+<div class="navigation row">
+    <div class="left date">
+        <span class="white-text" style="font-size:2rem;"><%= @date %>일 <%= @type_str_kor %></span>
+    </div>
+    <div class="right">
+        <a href="/"><button id="btn-menu" class="btn btn-small"><i class="material-icons">home</i></button></a>
+        <a onclick="modeReplace('/<%= @type_str_rev %>/<%= request.path.split('/').last %>')" ontouchend="modeReplace('/<%= @type_str_rev %>/<%= request.path.split('/').last %>')"><button id="btn-night" class="btn btn-small"><i class="material-icons">brightness_2</i></button></a>
+        <a href="/credit"><button class="btn btn-small">?</button></a>
+    </div>
+    <div align="right">
+        <% if @date.to_i == 26 then %>
+            <a href="/<%= @type_str %>/25"><button class="btn btn-small">25일</button></a>
+            <a href="/<%= @type_str %>/27"><button class="btn btn-small">27일</button></a>
+        <% elsif @date.to_i < 26 %>
+            <a href="/<%= @type_str %>/26"><button class="btn btn-small">26일</button></a>
+            <a href="/<%= @type_str %>/27"><button class="btn btn-small">27일</button></a>
+        <% else %>
+            <a href="/<%= @type_str %>/25"><button class="btn btn-small">25일</button></a>
+            <a href="/<%= @type_str %>/26"><button class="btn btn-small">26일</button></a>
+        <% end %>
+    </div>
+</div>
+<div class="toast_msg_map"><i class="material-icons">done</i>&nbsp;&nbsp;지도를 드래그하여 축제 정보를 확인하세요.</div>
+<div class='toast_msg' style="display:none;"></div>
+<script>var initLEDId = <%= @realtime.id %></script>

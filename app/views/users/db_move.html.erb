@@ -1,0 +1,51 @@
+<%= render 'layouts/admin_navigation' %>
+
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+  <br><br>
+  <h1 class="header center orange-text">DB정보</h1>
+  <div class="divider"></div>
+    <% flash.each do |message_type, message| %>
+    <div class="card-panel teal-gradient <%= message_type %>">
+      <span class="white-text center"><%= message %></span>
+    </div>
+    <div class="divider"></div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <table class="table striped centered responsive-table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>#ID</th>
+        <th>부스/주점명</th>
+        <th>날짜</th>
+        <th>시간대</th>
+        <th>X좌표</th>
+        <th>Y좌표</th>
+        <th>메뉴</th>
+        <th>수정/삭제</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @every_post.each do |p| %>
+      <tr>
+        <th scope="row"><h4><%=p.id %></h4></th>
+        <td><%= p.title %></td>
+        <td><%= p.date %>일</td>
+        <td><%= p.day %></td>
+        <td><%= p.x_loc %></td>
+        <td><%= p.y_loc %></td>
+        <td><%= simple_format(p.menu) %></td>
+        <td><a class="btn btn-lg btn-primary" href='/fest_manage/make/location/rewrite/<%=p.id %>'><i class="material-icons">arrow_forward</i></a></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <td colspan="6"></td>
+    </tfoot>
+  </table>
+  <div class="row center"></div>
+</div>
+
+<%= render 'layouts/admin_footer' %>

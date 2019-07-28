@@ -1,0 +1,19 @@
+<div data-map-time="<%= @type_str %>">
+    <div id="info_container">
+        <% @type.each do |data| %>
+        <div class="booth booth<%= data.id %>" style="top:<%= data.x_loc + 1 %>em;left:<%= data.y_loc %>em;">
+            <div class="pin-body_<%= data.id %> pin-body card card-padding">
+                <div class="pin-content">
+                    <h5 class="orange-text"><%= data.title %></h5>
+                    <div class="divider"></div>
+                </div>
+                <div class="pin-close"><a ontouchend="booth_close(this, <%= data.id %>);" onclick="booth_close(this, <%= data.id %>);"><i class="material-icons">clear</i></a></div>
+            </div>
+            <a ontouchend="booth_show(this, <%= data.id %>);" onclick="booth_show(this, <%= data.id %>);" class="pin" ><img  class="pin_img" src="<%= image_url 'pins/pin.png' %>"  id="pin_off_<%= data.id %>"></a>
+        </div>
+        <% end %>
+        <%= image_tag 'basic/festival_logo.png', height:'100rem' %>
+        <div class="divider"></div>
+        <%= image_tag 'map/' + @type_str + '.png', width:"800rem", height:"auto", class:"map zoom", id:"map" %>
+    </div>
+</div>

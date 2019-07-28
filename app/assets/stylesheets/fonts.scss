@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'KoPub Dotum';
+  font-weight: 300;
+  font-style: normal;
+  src: font-url('KoPubDotumLight.eot');
+  src: font-url('KoPubDotumLight.woff2') format('woff2'),
+       font-url('KoPubDotumLight.woff') format('woff'),
+       font-url('KoPubDotumLight.ttf') format('truetype'),
+       font-url('KoPubDotumLight.svg#KoPubDotumLight') format('svg'),
+       font-url('KoPubDotumLight.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'KoPub Dotum';
+  font-weight: 400;
+  font-style: normal;
+  src: font-url('KoPubDotumMedium.eot');
+  src: font-url('KoPubDotumMedium.woff2') format('woff2'),
+       font-url('KoPubDotumMedium.woff') format('woff'),
+       font-url('KoPubDotumMedium.ttf') format('truetype'),
+       font-url('KoPubDotumMedium.svg#KoPubDotumMedium') format('svg'),
+       font-url('KoPubDotumMedium.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'KoPub Dotum';
+  font-weight: 600;
+  font-style: normal;
+  src: font-url('KoPubDotumBold.eot');
+  src: font-url('KoPubDotumBold.woff2') format('woff2'),
+       font-url('KoPubDotumBold.woff') format('woff'),
+       font-url('KoPubDotumBold.ttf') format('truetype'),
+       font-url('KoPubDotumBold.svg#KoPubDotumBold') format('svg'),
+       font-url('KoPubDotumBold.eot?#iefix') format('embedded-opentype');
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>2016 아주대학교 대동제 정보</title>
+    <meta property="og:site_name" content="2016 아주대학교 대동제"/>
+    <meta property="og:title" content="2016 아주대학교 대동제"/>    
+    <meta property="og:description" content="2016 아주대학교 축제 정보" />
+    <meta property="article:author" content="멋쟁이사자처럼 at 아주대학교" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#0066FF">
+    <meta name="msapplication-TileColor" content="#0066FF">
+
+    <%= favicon_link_tag asset_path('basic/ajou_favicon.png') %>
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-kopub/1.0/kopubdotum.css'>
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <%= stylesheet_link_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <!--구글 애널리틱스 -방문자 확인  -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-77843318-2', 'auto');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview'); 
+      
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-78058691-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    <!--구글 애널리틱스 끝 -->
+  </head>
+  <body>
+    <div id="body">
+      <%= yield %>
+    </div>
+  </body>
+</html>
